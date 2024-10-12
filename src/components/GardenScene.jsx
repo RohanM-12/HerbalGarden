@@ -23,29 +23,29 @@ const GardenScene = () => {
         global
         config={{ mass: 2, tension: 400 }}
         snap={{ mass: 4, tension: 400 }}
-        rotation={[0, 0.3, 0]}
+        rotation={[0, 2.5, 0]}
         polar={[-Math.PI / 3, Math.PI / 3]}
         azimuth={[-Math.PI / 1.4, Math.PI / 2]}
       >
-        <Float speed={1.4} rotationIntensity={0.5} floatIntensity={0.5}>
+        <Float speed={3} rotationIntensity={2.5} floatIntensity={2.2}>
           {/* Replace these with actual 3D model paths */}
           <Plant
             position={[0, 0, 0]}
             rotation={[0, 0, 0]}
-            scale={1}
-            modelPath="/models/herb1.glb"
+            scale={10}
+            modelPath="/PlantModels/prayer_plant.glb"
           />
           <Plant
-            position={[2, 0, 2]}
+            position={[-1, 0, 2]}
             rotation={[0, Math.PI / 4, 0]}
             scale={1}
-            modelPath="/models/herb2.glb"
+            modelPath="/PlantModels/plant_pack.glb"
           />
           <Plant
-            position={[-2, 0, -2]}
+            position={[-1, 0, -2]}
             rotation={[0, -Math.PI / 4, 0]}
             scale={1}
-            modelPath="/models/herb3.glb"
+            modelPath="/PlantModels/stylized_foliage.glb"
           />
         </Float>
       </PresentationControls>

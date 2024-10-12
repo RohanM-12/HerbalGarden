@@ -31,7 +31,7 @@ function App() {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="h-[600px] rounded-lg overflow-hidden shadow-xl">
+          <div className="h-[450px] rounded-lg overflow-hidden shadow-xl">
             <Canvas>
               <Suspense fallback={null}>
                 <Environment preset="sunset" />
@@ -41,11 +41,11 @@ function App() {
             </Canvas>
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-5">
             <HerbalInfo />
-            <PlantCatalog />
           </div>
         </div>
+        <PlantCatalog />
       </main>
     </div>
   );
