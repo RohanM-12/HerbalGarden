@@ -1,75 +1,46 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Leaf, Menu, X } from "lucide-react";
+import React from "react";
+import { Link, NavLink } from "react-router-dom";
+import { Leaf } from "lucide-react";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const menuItems = [
-    { name: "Garden", href: "#garden" },
-    { name: "Plants", href: "#plants" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" },
-  ];
-
   return (
     <nav className="bg-white shadow-md">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center gap-2"
-          >
-            <Leaf className="text-emerald-600" />
-            <span className="text-xl font-semibold text-emerald-800">
+        <div className="flex items-center justify-between h-16">
+          <Link to="/" className="flex items-center gap-2">
+            <Leaf className="text-emerald-600" size={24} />
+            <span className="font-bold text-emerald-800">
               Virtual Herbal Garden
             </span>
-          </motion.div>
+          </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
-            {menuItems.map((item) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                whileHover={{ scale: 1.05 }}
-                className="text-emerald-600 hover:text-emerald-800 transition-colors"
-              >
-                {item.name}
-              </motion.a>
-            ))}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-emerald-600 hover:text-emerald-800"
+          <div className="flex gap-6">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `text-sm font-medium transition-colors ${
+                  isActive
+                    ? "text-emerald-600"
+                    : "text-gray-600 hover:text-emerald-600"
+                }`
+              }
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+              Home
+            </NavLink>
+            <NavLink
+              to="/plants"
+              className={({ isActive }) =>
+                `text-sm font-medium transition-colors ${
+                  isActive
+                    ? "text-emerald-600"
+                    : "text-gray-600 hover:text-emerald-600"
+                }`
+              }
+            >
+              Plant Catalog
+            </NavLink>
           </div>
         </div>
-
-        {/* Mobile Menu */}
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="md:hidden py-4"
-          >
-            {menuItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="block py-2 text-emerald-600 hover:text-emerald-800"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.name}
-              </a>
-            ))}
-          </motion.div>
-        )}
       </div>
     </nav>
   );

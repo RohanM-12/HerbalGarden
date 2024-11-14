@@ -6,7 +6,7 @@ export const plantsData = [
     description:
       "A fragrant herb known for its calming properties and beautiful purple flowers.",
     uses: ["Aromatherapy", "Essential Oils", "Culinary"],
-    modelPath: "/PlantModels/aloe_vera_plant.glb",
+    modelPath: "/PlantModels/lavender.glb",
     category: "Aromatic",
     careLevel: "Easy",
     growing: "Full sun, well-drained soil",
